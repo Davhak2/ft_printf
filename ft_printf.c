@@ -6,7 +6,7 @@
 /*   By: davihako <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 16:47:28 by davihako          #+#    #+#             */
-/*   Updated: 2025/01/15 19:32:57 by davihako         ###   ########.fr       */
+/*   Updated: 2025/01/16 17:24:38 by davihako         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,15 @@ static int	handle_str(char *str)
 
 static int	formats(const char fmt, va_list args)
 {
+	int	num;
+
 	if (fmt == 'c')
 		return (handle_char(va_arg(args, int)));
 	else if (fmt == 's')
 		return (handle_str(va_arg(args, char *)));
 	else if ((fmt == 'i') || (fmt == 'd'))
 	{
-		int num = va_arg(args, int);
+		num = va_arg(args, int);
 		ft_putnbr_fd(num, 1);
 		return (ft_num_len(num));
 	}
